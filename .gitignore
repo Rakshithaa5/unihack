@@ -1,0 +1,32 @@
+# Virtual environment
+/uni/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Environment / secrets
+.env
+*.env.local
+
+# Data / runtime artefacts
+data/knowledge_graph.db
+data/chroma_store/
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Node / frontend
+node_modules/
+.next/
+out/
