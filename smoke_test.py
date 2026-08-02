@@ -49,7 +49,7 @@ def main() -> None:
     else:
         print("  (not found — check extraction stub product_id)")
 
-    print("\n✅ Smoke test passed — all stubs return correctly-shaped data.")
+    print("\n[PASS] Smoke test passed -- all stubs return correctly-shaped data.")
     print("=" * 60)
 
 
