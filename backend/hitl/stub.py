@@ -26,7 +26,7 @@ def override_field(field: ResolvedField, new_value: object) -> ResolvedField:
     Real implementation (Phase 3) will persist to storage and nudge the
     source's trust_score up or down based on the override direction.
     """
-    print(f"[STUB] override_field: {field.attribute!r} → {new_value!r}")
+    print(f"[STUB] override_field: {field.attribute!r} -> {new_value!r}")
     field.value = new_value
     field.reasoning = f"HITL override: accepted value {new_value!r} (stub)"
     return field

@@ -19,7 +19,7 @@ from backend import storage
 
 def main() -> None:
     print("=" * 60)
-    print("ProvenIQ — Phase 0/0.5 Smoke Test")
+    print("ProvenIQ -- Phase 0/0.5 Smoke Test")
     print("=" * 60)
 
     # Run the stub pipeline for a made-up product
@@ -47,7 +47,7 @@ def main() -> None:
     if trail:
         print(f"  source_id={trail.source_id!r}, confidence={trail.confidence:.2f}")
     else:
-        print("  (not found — check extraction stub product_id)")
+        print("  (not found -- check extraction stub product_id)")
 
     print("\n[PASS] Smoke test passed -- all stubs return correctly-shaped data.")
     print("=" * 60)
