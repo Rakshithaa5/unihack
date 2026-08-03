@@ -16,5 +16,5 @@ def enrich(missing_field: Field, corpus: object) -> ResolvedField | None:
     Real implementation (Phase 3) will query a Chroma vector store with
     sentence-transformers embeddings and call Groq LLM for extraction.
     """
-    print(f"[STUB] enrich: attribute={missing_field.attribute!r} — no enrichment (stub)")
+    print(f"[STUB] enrich: attribute={missing_field.attribute!r} -- no enrichment (stub)")
     return None
