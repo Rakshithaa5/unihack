@@ -43,7 +43,7 @@ _INTER_QUERY_SLEEP: Final = 1.0  # seconds between DDGS calls (politeness)
 
 # Heuristic trust score by domain pattern (order matters — first match wins).
 _DOMAIN_TRUST: Final[list[tuple[str, float]]] = [
-    # Manufacturer / official product pages
+    # Manufacturer / official product pages (matched before generic .pdf rule)
     (r"alliedmotion\.com", 0.95),
     (r"ti\.com", 0.95),
     (r"st\.com", 0.95),
@@ -51,7 +51,7 @@ _DOMAIN_TRUST: Final[list[tuple[str, float]]] = [
     (r"allegromicro\.com", 0.95),
     (r"invensense\.tdk\.com", 0.95),
     (r"\.com/datasheet", 0.90),
-    (r"\.pdf$", 0.90),
+    (r"\.pdf$", 0.90),              # generic PDF — after manufacturer patterns
     # Major distributors
     (r"digikey\.com", 0.75),
     (r"mouser\.com", 0.75),
@@ -59,9 +59,8 @@ _DOMAIN_TRUST: Final[list[tuple[str, float]]] = [
     (r"farnell\.com", 0.72),
     (r"rs-online\.com", 0.70),
     (r"avnet\.com", 0.70),
-    # Engineering communities / wikis — useful context, lower trust
-    (r"datasheet\.pdf", 0.80),
-    (r"datasheetspdf\.com", 0.55),
+    # Datasheet aggregators — lower trust
+    (r"datasheetspdf\.com", 0.55),  # .pdf$ above doesn't match .com domains
     (r"datasheet\.live", 0.50),
 ]
 _DEFAULT_TRUST: Final = 0.55
@@ -76,8 +75,8 @@ def _url_to_source_id(url: str) -> str:
     return "web-" + hashlib.sha1(url.encode()).hexdigest()[:12]
 
 
-def _infer_source_type(url: str, body: str = "") -> SourceType:
-    """Guess document type from URL extension or snippet content."""
+def _infer_source_type(url: str) -> SourceType:
+    """Guess document type from URL extension."""
     url_lower = url.lower()
     if url_lower.endswith(".pdf") or "datasheet" in url_lower:
         return SourceType.PDF
@@ -104,7 +103,7 @@ def _result_to_source(result: dict) -> Source:
     return Source(
         source_id=_url_to_source_id(url),
         url=url,
-        source_type=_infer_source_type(url, body),
+        source_type=_infer_source_type(url),
         origin=SourceOrigin.DISCOVERED,
         trust_score=_score_trust(url),
         title=title,
@@ -120,7 +119,7 @@ def formulate_queries(
     mpn: str,
     brand: str,
     description: str,
-    groq_client: Groq,
+    groq_client: Groq | None,
 ) -> list[str]:
     """
     Use Groq LLM to produce up to _MAX_QUERIES targeted search strings.

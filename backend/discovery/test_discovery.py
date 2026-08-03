@@ -68,6 +68,18 @@ class TestCatalogSearch:
         sources = search_catalog("NONEXISTENT-9999", "NoSuchBrand", catalog)
         assert sources == [], "Unknown MPN must return an empty list."
 
+    def test_empty_inputs_return_empty(self, catalog):
+        """Empty MPN and empty brand must never match all catalog entries."""
+        from backend.discovery.catalog import search_catalog
+        sources = search_catalog("", "", catalog)
+        assert sources == [], "Empty inputs must return empty list, not all catalog entries."
+
+    def test_known_mpn_unknown_brand_still_matches(self, catalog):
+        """MPN match should win even if brand is wrong/empty."""
+        from backend.discovery.catalog import search_catalog
+        sources = search_catalog("EM75S-001", "", catalog)
+        assert len(sources) >= 1, "MPN match must work with empty brand."
+
     def test_alias_matching(self, catalog):
         """Catalog should match on known aliases, not just the canonical MPN."""
         from backend.discovery.catalog import search_catalog
@@ -106,6 +118,10 @@ class TestWebSearchHelpers:
     def test_infer_source_type_html(self):
         from backend.discovery.web_search import _infer_source_type
         assert _infer_source_type("https://digikey.com/product/stm32") == SourceType.HTML
+
+    def test_infer_source_type_image(self):
+        from backend.discovery.web_search import _infer_source_type
+        assert _infer_source_type("https://example.com/nameplate.jpg") == SourceType.IMAGE
 
     def test_trust_score_manufacturer_high(self):
         from backend.discovery.web_search import _score_trust

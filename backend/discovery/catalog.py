@@ -60,21 +60,35 @@ def _matches(product: dict, mpn: str, brand: str) -> bool:
     """
     Return True if the catalog product matches by MPN or brand substring.
 
-    Matching rules (any one is sufficient):
-      - MPN matches product["mpn"] (case-insensitive)
-      - MPN appears in any product["aliases"]
-      - Brand matches product["brand"] (case-insensitive)
+    Matching rules (evaluated in priority order):
+      1. MPN exact match (case-insensitive) — highest confidence.
+      2. MPN substring match within any product alias.
+      3. Brand substring match — only when MPN is absent/unknown and brand
+         has ≥3 chars (guards against empty strings matching everything).
     """
     mpn_norm  = _normalise(mpn)
     brand_norm = _normalise(brand)
 
-    if mpn_norm == _normalise(product.get("mpn", "")):
+    # Guard: nothing to match on
+    if not mpn_norm and not brand_norm:
+        return False
+
+    # 1. Exact MPN match
+    if mpn_norm and mpn_norm == _normalise(product.get("mpn", "")):
         return True
-    for alias in product.get("aliases", []):
-        if mpn_norm == _normalise(alias) or mpn_norm in _normalise(alias):
+
+    # 2. MPN substring match in any alias
+    if mpn_norm:
+        for alias in product.get("aliases", []):
+            if mpn_norm == _normalise(alias) or mpn_norm in _normalise(alias):
+                return True
+
+    # 3. Brand-only match: require ≥3 chars and no MPN provided
+    #    (avoids brand match when caller supplies a real but unrecognised MPN)
+    if not mpn_norm and len(brand_norm) >= 3:
+        if brand_norm in _normalise(product.get("brand", "")):
             return True
-    if brand_norm and brand_norm in _normalise(product.get("brand", "")):
-        return True
+
     return False
 
 
