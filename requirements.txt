@@ -14,7 +14,7 @@ requests>=2.32.0
 lxml>=5.2.0                        # fast HTML/XML parser for BS4
 
 # Web search (free-tier REST wrapper)
-duckduckgo-search>=6.2.0           # zero-key web search fallback
+ddgs>=7.0.0                          # zero-key web search (renamed from duckduckgo-search)
 
 # RAG — embeddings & vector store
 sentence-transformers>=3.0.0       # local, all-MiniLM-L6-v2, no API cost

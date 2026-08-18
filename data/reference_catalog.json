@@ -1,0 +1,158 @@
+[
+  {
+    "mpn": "EM75S-001",
+    "brand": "Allied Motion",
+    "description": "EnduraMax 75s brushless DC motor, 24V, 10A",
+    "aliases": ["EnduraMax 75s", "EM75S"],
+    "sources": [
+      {
+        "url": "https://www.alliedmotion.com/product/enduramax-75s/",
+        "source_type": "html",
+        "trust_score": 0.92,
+        "title": "EnduraMax 75s | Allied Motion Technologies"
+      },
+      {
+        "url": "https://www.alliedmotion.com/wp-content/uploads/2019/12/EnduraMax-75s-datasheet.pdf",
+        "source_type": "pdf",
+        "trust_score": 0.95,
+        "title": "EnduraMax 75s Datasheet — Allied Motion"
+      },
+      {
+        "url": "https://www.mouser.com/ProductDetail/Allied-Motion/EM75S-001",
+        "source_type": "html",
+        "trust_score": 0.70,
+        "title": "EM75S-001 Allied Motion — Mouser Electronics"
+      }
+    ]
+  },
+  {
+    "mpn": "LM2596S-5.0",
+    "brand": "Texas Instruments",
+    "description": "Simple switcher step-down voltage regulator, 5V, 3A",
+    "aliases": ["LM2596", "LM2596S"],
+    "sources": [
+      {
+        "url": "https://www.ti.com/product/LM2596",
+        "source_type": "html",
+        "trust_score": 0.95,
+        "title": "LM2596 Simple Switcher Regulator | Texas Instruments"
+      },
+      {
+        "url": "https://www.ti.com/lit/ds/symlink/lm2596.pdf",
+        "source_type": "pdf",
+        "trust_score": 0.98,
+        "title": "LM2596 Datasheet — Texas Instruments"
+      },
+      {
+        "url": "https://www.digikey.com/en/products/detail/texas-instruments/LM2596S-5-0-NOPB/366956",
+        "source_type": "html",
+        "trust_score": 0.72,
+        "title": "LM2596S-5.0/NOPB Texas Instruments | Digi-Key Electronics"
+      }
+    ]
+  },
+  {
+    "mpn": "STM32F103C8T6",
+    "brand": "STMicroelectronics",
+    "description": "ARM Cortex-M3 microcontroller, 72MHz, 64KB flash",
+    "aliases": ["STM32F103C8", "Blue Pill", "STM32F103"],
+    "sources": [
+      {
+        "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html",
+        "source_type": "html",
+        "trust_score": 0.95,
+        "title": "STM32F103C8 | STMicroelectronics"
+      },
+      {
+        "url": "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf",
+        "source_type": "pdf",
+        "trust_score": 0.98,
+        "title": "STM32F103C8 Datasheet — STMicroelectronics"
+      },
+      {
+        "url": "https://www.mouser.com/ProductDetail/STMicroelectronics/STM32F103C8T6",
+        "source_type": "html",
+        "trust_score": 0.70,
+        "title": "STM32F103C8T6 STMicroelectronics | Mouser Electronics"
+      }
+    ]
+  },
+  {
+    "mpn": "NRF52840",
+    "brand": "Nordic Semiconductor",
+    "description": "Bluetooth 5 / Thread / Zigbee SoC, ARM Cortex-M4, 1MB flash",
+    "aliases": ["nRF52840", "nRF52840-QIAA"],
+    "sources": [
+      {
+        "url": "https://www.nordicsemi.com/Products/nRF52840",
+        "source_type": "html",
+        "trust_score": 0.95,
+        "title": "nRF52840 | Nordic Semiconductor"
+      },
+      {
+        "url": "https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.7.pdf",
+        "source_type": "pdf",
+        "trust_score": 0.98,
+        "title": "nRF52840 Product Specification — Nordic Semiconductor"
+      },
+      {
+        "url": "https://www.digikey.com/en/products/detail/nordic-semiconductor-asa/NRF52840-QIAA-R",
+        "source_type": "html",
+        "trust_score": 0.70,
+        "title": "NRF52840-QIAA-R Nordic Semiconductor | Digi-Key"
+      }
+    ]
+  },
+  {
+    "mpn": "MPU-6050",
+    "brand": "InvenSense",
+    "description": "6-axis IMU, 3-axis gyroscope + 3-axis accelerometer, I2C/SPI",
+    "aliases": ["MPU6050", "MPU 6050"],
+    "sources": [
+      {
+        "url": "https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050/",
+        "source_type": "html",
+        "trust_score": 0.92,
+        "title": "MPU-6050 | InvenSense TDK"
+      },
+      {
+        "url": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf",
+        "source_type": "pdf",
+        "trust_score": 0.97,
+        "title": "MPU-6000/MPU-6050 Product Specification — InvenSense"
+      },
+      {
+        "url": "https://www.sparkfun.com/products/11028",
+        "source_type": "html",
+        "trust_score": 0.65,
+        "title": "SparkFun IMU Breakout — MPU-6050"
+      }
+    ]
+  },
+  {
+    "mpn": "ACS712-05B",
+    "brand": "Allegro MicroSystems",
+    "description": "Hall-effect current sensor, ±5A range, 5V supply",
+    "aliases": ["ACS712", "ACS712ELCTR-05B"],
+    "sources": [
+      {
+        "url": "https://www.allegromicro.com/en/Products/Sense/Current-Sensor-ICs/Zero-To-Fifty-Amp-Integrated-Conductor-Sensor-ICs/ACS712",
+        "source_type": "html",
+        "trust_score": 0.93,
+        "title": "ACS712 | Allegro MicroSystems"
+      },
+      {
+        "url": "https://www.allegromicro.com/~/media/Files/Datasheets/ACS712-Datasheet.ashx",
+        "source_type": "pdf",
+        "trust_score": 0.97,
+        "title": "ACS712 Datasheet — Allegro MicroSystems"
+      },
+      {
+        "url": "https://www.digikey.com/en/products/detail/allegro-microsystems/ACS712ELCTR-05B-T/1284594",
+        "source_type": "html",
+        "trust_score": 0.72,
+        "title": "ACS712ELCTR-05B-T Allegro MicroSystems | Digi-Key"
+      }
+    ]
+  }
+]
